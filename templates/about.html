@@ -1,0 +1,30 @@
+{% block content%}
+{% load static %}
+
+<li id="page_About">
+								<div class="box1">
+									<div class="inner">
+										<a href="#" class="close" data-type="close"><span></span></a>
+										<h2>My Bio</h2>
+										<div class="wrapper">
+											<figure class="left marg_right1"><img src="{{bio_mod.image.url}}" width="290" alt=""></figure>
+											<p class="color1 pad_bot2"><strong>{{bio_mod.title}}</strong></p>
+											<p> {{bio_mod.description}}</p>
+											<strong>{{bio_mod.date}}</strong>
+										</div>
+
+										<h2>My Content</h2>
+										<ul class="list2 pad_bot1">
+											<li><a href="https://instagram.com/lee_tattar" target="_blank">Instagram</a></li>
+											<li><a href="https://onlyfans.com/leetattar" target="_blank">Onlyfans</a></li>
+											<li><a href="https://www.patreon.com/leetattar" target="_blank">Patreon</a></li>
+											<li><a href="https://twitter.com/leetattar" target="_blank">Twitter</a></li>
+											<li><a href="https://www.facebook.com/leetattar" target="_blank">Facebook</a></li>
+
+										</ul>
+
+									</div>
+								</div>
+							</li>
+
+{%endblock%}

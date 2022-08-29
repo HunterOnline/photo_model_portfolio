@@ -1,0 +1,129 @@
+{% block content%}
+{% load static %}
+
+
+
+
+
+<style>
+
+  .inner{
+
+    width: 623px;
+    height: 814px;
+    border: 1px solid black;
+
+  }
+#pic{ overflow-x: hidden;width: 100%; }
+.tab-content{margin-left:10px min-width: 100%; min-height: 100%;}
+.gallery {overflow: hidden;  width: 470px;}
+.ramka {float: left; margin-right: 10px; margin-bottom: 10px;}
+.gallery img { width: 208px; height: 134px; object-fit: cover; }
+
+.container {
+
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-top: 60.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+
+
+<li id="page_Portfolio">
+								<div class="box1">
+									   <div data-simplebar class="inner" >
+										<a href="#" class="close" data-type="close"><span></span></a>
+										<div class="wrapper tabs">
+											<div class="col1">
+												<h2>Categories:</h2>
+												<ul class="nav" id="min_menu">
+													<li class="selected"><a  href="#Photo"><span></span><strong>My Photo</strong></a></li>
+													<li><a  href="#Video"><span></span><strong>My Video</strong></a></li>
+													<li><a  href="#Models"><span></span><strong>Models</strong></a></li>
+												</ul>
+											   </div>
+											   <div  id="pic"  class="col2 pad_left1">
+                                               <div class="gallery" >
+
+												<div class="tab-content" id="Photo">
+													<h2>My Photo</h2>
+													<div class="wrapper" >
+	                                                    {% for photo in my_photo_mod %}
+														{% if forloop.counter|divisibleby:"2" %}
+														<div  class="ramka"><figure class="left marg_right1"><a href="{{photo.image.url}}" class="lightbox-image" data-type="prettyPhoto[group1]" ><span></span><img class="lazy" data-src="{{photo.image.url}}"  alt=""> </a></figure></div>
+														{%else%}
+														<div  class="ramka"><figure class="left"><a href="{{photo.image.url}}" class="lightbox-image" data-type="prettyPhoto[group1]"><span></span><img class="lazy" data-src="{{photo.image.url}}"    alt=""></a></figure></div>
+														{%endif%}
+														{%endfor%}
+
+
+                                                          </div>
+
+
+
+
+
+
+													</div>
+											   </div>
+
+
+                                                 <div class="vp-video-wrapper" >
+											     <div class="tab-content" id="Video">
+													<h2>My Video</h2>
+													<div class="wrapper" >
+														 {% for video in video_link %}
+
+													<div class="container"> <iframe class="responsive-iframe"   loading="lazy" src="{{video.link}}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen ></iframe></div>
+
+
+														{%endfor%}
+
+													</div>
+
+													</div>
+												 </div>
+
+
+
+												<div class="gallery" >
+											     <div class="tab-content" id="Models">
+													<h2>Models</h2>
+
+												<div class="wrapper">
+														 {% for photo in photo_mod %}
+														{% if forloop.counter|divisibleby:"2" %}
+														<div  class="ramka"><figure class="left marg_right1"><a href="{{photo.image.url}}" class="lightbox-image" data-type="prettyPhoto[group2]"><span></span><img  class="lazy" data-src="{{photo.image.url}}"  alt=""></a></figure></div>
+														{%else%}
+														<div  class="ramka"><figure class="left"><a href="{{photo.image.url}}" class="lightbox-image" data-type="prettyPhoto[group2]"><span></span><img  class="lazy" data-src="{{photo.image.url}}" alt=""></a></figure></div>
+														{%endif%}
+														{%endfor%}
+													 </div>
+
+													</div>
+												 </div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+</li>
+
+
+{%endblock%}

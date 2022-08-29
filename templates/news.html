@@ -1,0 +1,55 @@
+{% block content%}
+{% load static %}
+
+
+<style>
+  .inner{
+
+    width: 623px;
+    height: 814px;
+    border: 1px solid black;
+  }
+</style>
+
+<li id="page_Home">
+    <div   class= "box1" >
+        <div data-simplebar class="inner" >
+            <a href="#" class="close" data-type="close"><span></span></a>
+            <div class="wrapper pad_bot3">
+ <ul>
+     <h2>News</h2>
+     <div  class="wrapper">
+         <div class="infinite-container">
+
+
+{% for article in articles %}
+
+                  <div class="infinite-item">
+
+                      <span class="date"><strong>{{article.date|date:'d'}}</strong><span>{{article.date|date:'b'}}</span> </span>
+                      <p class="color1 pad_bot2"><strong>{{article.title}}</strong></p>
+                      <p class="lazy" style="padding:0">{{article.description}} </p>
+                      <p style="text-align:right">{{article.date|date:'Y'}} </p>
+
+                  </div>
+                {% endfor %}
+
+
+
+            </div>
+
+												</div>
+ </ul>
+										</div>
+									</div>
+    </div>
+
+
+</li>
+
+
+
+
+
+{%endblock%}
+
